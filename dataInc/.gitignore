@@ -1,0 +1,9 @@
+flights
+ff
+gtfs_nyct_bus_20150103
+realtime
+*.RData
+*.RDataTmp
+
+*.RData
+*.RDataTmp

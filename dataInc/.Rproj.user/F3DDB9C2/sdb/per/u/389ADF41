@@ -1,0 +1,18 @@
+{
+    "contents" : "sample_months <- c(1,2,3,4)\nsample_data <- df[df$ORIGIN_STATE_ABR == \"MA\" & df$MONTH %in% sample_months,]\ncolnames(sample_data)\nsample_data$TimeBIn2 <- cut.POSIXt((sample_data$newTime), breaks = my.breaks, labels = FALSE)\nsample_data <- subset(sample_data,  !is.na(TimeBIn) )\n\nmin(sample_data$TimeBIn2)\nmax(sample_data$ACTUAL_ELAPSED_TIME)\ndata_for_d3 <- (sample_data[,c(8,22, 23, 24, 25,26,  30, 32, 39, 43) ])\nwrite.csv(data_for_d3, 'C:/Users/Peyman.n\\\\Dropbox\\\\data incubator\\\\DemoProject\\\\sampledata.csv')\n",
+    "created" : 1455675649337.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2642136728",
+    "id" : "389ADF41",
+    "lastKnownWriteTime" : 7011605692497750387,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

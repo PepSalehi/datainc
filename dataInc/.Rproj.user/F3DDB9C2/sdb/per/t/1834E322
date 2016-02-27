@@ -1,0 +1,17 @@
+{
+    "contents" : "combined <- read.csv(\"C:/Users/Peyman.n/Dropbox/data incubator/flights/combined.csv\", stringsAsFactors=FALSE, header = TRUE)\nhead(combined)\nhead(combined$DEST_CITY_NAME)\n\nsample_dest <- \"MA\" #combined$DEST_CITY_NAME[1]\n\ncombined[, 'ARR_DELAY']\n\ncombined %>% filter(DEST_CITY_NAME == sample_dest) %>%  filter(!is.na(ARR_DELAY)) %>% group_by(CARRIER) %>% select(c(ARR_DELAY, CARRIER))\n\ndelays_for_sample_dest <- combined %>% filter(DEST_CITY_NAME == sample_dest) %>%  filter(!is.na(ARR_DELAY)) %>% select(c(ARR_DELAY, CARRIER))\n\n\ntemp <-  combined %>% filter(ORIGIN_STATE_ABR == sample_dest) %>%  filter(!is.na(ARR_DELAY)) %>% group_by(CARRIER) \n# %>% \n#   select(c(ARR_DELAY, CARRIER)) \n\ncarriers <- unique(temp$CARRIER)\n\npar(mfrow=c(5,3), mar=c(2,2,4,1))\nfor (i in carriers){\n  delays <- temp %>% filter(CARRIER == i) %>% .$ARR_DELAY\n  d = density(delays)\n  plot(d, main= i , cex.main=1.5, cex.axis=1, border=\"white\", col=\"#cccccc\",space=0, axes=FALSE, xlim=c(-100,200), \n       ylim= c(0, .041), yaxs=\"i\") # , bty=\"n\"\n  polygon(d, col=\"#e26b43\", border=\"white\", ylim= c(0, .031))\n  # Draw custom axes\n  axis(side=1, at=c(seq(-100, 400, 100)), labels=TRUE)\n  axis(side=2, at=c(0,.01,.02,.03), cex=0.7)\n  abline(v= quantile(delays, .9) )\n  mtext(paste0(\"90th percentile delay is \", round(quantile(delays, .9)) ,\" mins\"))\n}\n\n",
+    "created" : 1455570445571.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3953006705",
+    "id" : "1834E322",
+    "lastKnownWriteTime" : 1455760287,
+    "path" : "C:/Users/Peyman.n/Dropbox/data incubator/DemoProject/small_multiples.r",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
