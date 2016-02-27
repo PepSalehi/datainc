@@ -1,0 +1,19 @@
+#number-projects-nd {
+    font-size: 60px;
+}
+
+#total-donations-nd {
+    font-size: 60px;
+}
+
+#poverty-level-row-chart .x.axis text{
+
+	text-anchor: end !important;
+    transform: rotate(-45deg);
+
+}
+.dc-chart g.row text {
+    fill: black;
+    font-size: 12px;
+}
+
